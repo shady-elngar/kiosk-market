@@ -1,0 +1,15 @@
+<h2 class="mt-4 p-4">Log in Now :</h2>
+<app-form [fields]="['email','password']" (fromSubmit)="loginHundeler($event)" [Loading]="isLoading" [btnContant]="'login'"></app-form>
+
+<div class="text-center mt-3">
+  <a routerLink="/auth/forgetpassword" class="forget-link">
+    Forgot your password?
+  </a>
+
+  <div class="signup-text">
+    Don’t have an account?
+    <a routerLink="/auth/signup" class="signup-link">Sign up</a>
+  </div>
+</div>
+
+

@@ -1,0 +1,39 @@
+<app-main-slider></app-main-slider>
+<app-new-arrival-products></app-new-arrival-products>
+
+<div class="container-fluid mt-3">
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="panner " #animatedPanner [class.animate__animated]="isVisible" [class.animate__bounceInLeft]="isVisible" [class.animate__slower]="isVisible" >
+                <img class="w-100" src="assets/3-Banner-ENG.jpg">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panner" #animatedPanner [class.animate__animated]="isVisible" [class.animate__bounceInRight]="isVisible" [class.animate__slower]="isVisible">
+                <img class="w-100" src="assets/2-Banner-Eng.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-categories></app-categories>
+
+
+<h1 class="animate__animated animate__shakeY animate__slower animate__infinite text-center text-main mt-5 head-line">
+    IT IS SUMMER TIME
+</h1>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panner">
+                <img class="w-100" src="../../../assets/3-Slider-Eng.jpg" />
+            </div>
+        </div>
+    </div>
+</div>
+<app-all-products></app-all-products>
+<app-brands></app-brands>
+<app-top-selling></app-top-selling>
+
+
+

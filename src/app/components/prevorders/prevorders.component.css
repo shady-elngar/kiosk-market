@@ -1,0 +1,55 @@
+/* ============ Orders Container ============ */
+.orders-container {
+  animation: fadeIn 0.7s ease;
+}
+
+.order-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid #0d6efd;
+}
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ============ Toggle Button ============ */
+.toggle-btn i {
+  transition: transform 0.3s ease;
+}
+.toggle-btn:hover i {
+  transform: scale(1.2);
+}
+
+/* ============ Order Details Animation ============ */
+.order-details {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.order-details.show {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* ============ Product Card ============ */
+.product-card img {
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ============ Animation ============ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

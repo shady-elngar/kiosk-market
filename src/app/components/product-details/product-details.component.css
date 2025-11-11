@@ -1,0 +1,107 @@
+.brand
+{
+    color: #66666680;
+    font-size: 20px;
+    font-weight: 400;
+}
+.title
+{
+    color: #0e173f;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.currentprice
+{
+    
+    color: #cb0000;
+    font-weight: 500;
+    font-size: 20px;
+}
+.discountprice
+{
+color: #afafaf;
+    font-size: 16px;
+    font-weight: 500;
+}
+.add-to-cart-btn {
+background: linear-gradient(45deg, #1e3a8a, #1d4ed8); /* أزرق ملكي قوي */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(45deg, #fbbf24, #b45309);
+  transform: translateY(-2px);
+}
+.add-to-wishlist-btn {
+  background: linear-gradient(45deg, #1e40af, #3b82f6); /* أزرق فاتح متدرج */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-to-wishlist-btn:hover {
+  background: linear-gradient(45deg, #ec4899, #f472b6);
+  transform: translateY(-2px);
+}
+.buttons-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.discount
+{
+   display: flex ;
+    gap: 6px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid #eaecf0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #fff 35%, #effdf2);
+}
+.code
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 700;
+    border: 1px dashed #1e40af;
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+.discoPerc
+{
+    color: rgb(0 130 0);
+    font-size: 14px;
+    font-weight: 900;
+    
+}

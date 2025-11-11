@@ -1,0 +1,49 @@
+<app-loading-spinner></app-loading-spinner>
+@if (wishListProducts.length==0) {
+<h2 class="head-line text-center">your Wish List is empty</h2>
+}@else {
+
+<div class="container">
+  <div class="row">
+    <h2 class="head-line mb-5">Wish List    :</h2>
+    <div class="col-md-8 offset-md-2  ">
+      @for (item of wishListProducts; track $index) {
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div  class="item-image w-25 cursor-pointer" [routerLink]="['/main/productDetails', item.id]">
+          <img class="w-50" [src]="item.imageCover" />
+        </div>
+
+        <div class="item-details w-75  d-flex justify-content-around g-4   align-content-center">
+          <span class="brand">{{ item.brand.name }}</span>
+          <h6 class="title mb-1">
+            {{ item.title.split(" ").slice(0, 2).join(" ") }}
+          </h6>
+          <span class="d-block mb-2">
+            price: <span class="currentprice">{{ item.price }}</span> EGP
+          </span>
+
+          <button
+            (click)="removeWishItem(item.id)"
+            class="delete-btn d-block mb-2"
+          >
+           @if (loadingProductId === item.id ) {
+
+ <i class="fa-solid fa-spinner fa-spin"></i>
+           }@else {
+<i class="fa-solid fa-trash-can"></i> Delete 
+           }
+            
+          </button>
+
+               
+
+
+        </div>
+      </div>
+      <hr />
+      }
+    </div>
+
+  </div>
+</div>
+}

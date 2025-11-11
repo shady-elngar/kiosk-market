@@ -1,0 +1,33 @@
+.forget-link {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.forget-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.signup-text {
+  color: #666;
+  font-size: 14px;
+}
+
+.signup-link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

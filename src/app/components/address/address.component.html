@@ -1,0 +1,49 @@
+<h2 class="mt-4 p-4">Address :</h2>
+<div class="container  mb-5">
+  <div class="row">
+    <div class="col-md-8">
+      <app-form
+        [fields]="['name', 'details', 'phone', 'city']"
+        (fromSubmit)="addressHundeler($event)"
+        [Loading]="isLoading"
+        [btnContant]="'Confirm'"
+      ></app-form>
+    </div>
+    <div class="col-md-4">
+      <div class=" rounded-4 text-center">
+        <div class=" border-0">
+          <h5 class=" fw-bold text-success" id="paymentModalLabel">
+            Payment Method 💰
+          </h5>
+        </div>
+
+        <div class=" text-center px-4 pb-4">
+          <p class="text-muted mb-3">Please Choose Your Payment Method</p>
+
+        <div class="d-grid gap-2">
+  <button
+    class="btn py-2 rounded-pill fw-semibold"
+    [class.btn-success]="selectedMethod === 'visa'"
+    [class.text-white]="selectedMethod === 'visa'"
+    [class.btn-outline-primary]="selectedMethod !== 'visa'"
+    (click)="selectMethod('visa')"
+  >
+    Pay Via Visa (online) 💳
+  </button>
+
+  <button
+    class="btn py-2 rounded-pill fw-semibold"
+    [class.btn-success]="selectedMethod === 'cash'"
+    [class.text-white]="selectedMethod === 'cash'"
+    [class.btn-outline-success]="selectedMethod !== 'cash'"
+    (click)="selectMethod('cash')"
+  >
+    Cash On Delivery 💵
+  </button>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

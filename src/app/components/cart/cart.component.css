@@ -1,0 +1,79 @@
+.brand
+{
+    color: #66666680;
+    font-size: 20px;
+    font-weight: 400;
+}
+.title
+{
+    color: #0e173f;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.currentprice
+{
+    
+    color: #cb0000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid #ccc;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.quantity-btn {
+  background: #f8f9fa;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background: #e9ecef;
+}
+
+.quantity input {
+  width: 50px;
+  text-align: center;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+  background: transparent;
+}
+.summary-box {
+  position: sticky;
+  top: 10px; 
+  left: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* نحافظ على أن المودال يطلع بشكل ناعم بدون ظل */
+.modal-content {
+  box-shadow: none !important;
+  background-color: #fff;
+}
+
+/* الخلفية الداكنة للمودال (اللي وراه) */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.6); /* تقدر تزود أو تقلل الشفافية */
+}
+
+
+

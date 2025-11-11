@@ -1,0 +1,98 @@
+
+<app-loading-spinner></app-loading-spinner>
+
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="w-75  text-center">
+        <owl-carousel-o [options]="customOptions">
+          @for (slide of productInfo?.images; track slide.id) {
+          <ng-template carouselSlide [id]="slide.id">
+            <img [src]="slide" [alt]="slide.alt" [title]="slide.title" />
+          </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="details ms-0">
+        <span class="brand">{{ productInfo?.brand.name }}</span>
+        <h3 class="title mb-2">{{ productInfo?.title }}</h3>
+
+@if(productInfo?.priceAfterDiscount){
+
+        <span class="me-3 currentprice">{{ productInfo?.priceAfterDiscount }} EGP</span>
+        <del class="discountprice me-3">{{ productInfo?.price }} EGP</del>
+
+        <span class="discoPerc">({{discountPerc}}% OFF)</span>
+}@else {
+            <span class="currentprice">{{ productInfo?.price }} EGP</span>
+
+}
+
+        <h6 class="mt-3">{{ productInfo?.slug }}</h6>
+        <div class="text-yellow-400 text-lg flex gap-1 mt-3">
+          @for (star of productInfo?.ratingsAverage | starRating; track star) {
+          @if (star === 'full') {
+          <i class="fa-solid fa-star star cursor-pointer"></i>
+          } @else if (star === 'half') {
+          <i class="fa-solid fa-star-half-stroke star cursor-pointer"></i>
+          } @else {
+          <i class="fa-regular fa-star star cursor-pointer"></i>
+          } }
+          <span class="text-gray-700 font-medium text-base ms-3">
+    {{ productInfo?.ratingsAverage }}
+  </span>
+        </div>
+        @if (productInfo?.description.length>300 && seeMore==false) {
+        <p class="fw-bolder">About the product : <span class="brand">{{productInfo?.description.split(" ").slice(0, 15).join(" ")}}</span><span (click)="showMore()" class="ms-2 cursor-pointer ">see more ....</span></p>
+
+        }@else if (productInfo?.description.length>300 && seeMore==true) {
+                    <p class="fw-bolder">About the product : <span class="brand">{{productInfo?.description}}</span><span (click)="showLess()" class="ms-2 cursor-pointer ">see less ....</span></p>
+
+        }
+        @else {
+        <p class="fw-bolder">About the product : <span class="brand">{{productInfo?.description}}</span></p>
+
+        }
+        <hr>
+        <h6 class="brand">Coupons</h6>
+        <div class="discount w-50">
+            <div class="align-baseline">
+            <i class="fa-solid fa-tag"></i> GET 20% OFF
+            </div>
+            <div class="code"> KIOSK201 </div>
+        </div>
+<div class="buttons-group">
+
+
+  <button class="add-to-cart-btn" (click)="addToCart(productInfo._id)">
+    @if (isLoading==true) {
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    }@else {
+<i class="fa-solid fa-cart-plus"></i> Add to Cart
+    }
+    
+  </button>
+
+
+
+  <button class="add-to-wishlist-btn" (click)="addToWish(productInfo._id)" >
+ @if (wishLoading==true) {
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    }@else {
+          <i class="fa-regular fa-heart"></i> Wishlist
+
+    }
+
+  </button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+
+    </div>
+</div>

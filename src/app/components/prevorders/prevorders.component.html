@@ -1,0 +1,106 @@
+
+<app-loading-spinner></app-loading-spinner>
+<div class="orders-container container my-5">
+  <h2 class="text-center mb-5 fw-bold text-primary">My Orders</h2>
+
+  @for (order of orders; track order._id) {
+    <div class="order-card card shadow-sm border-0 mb-4 rounded-4">
+      <div class="card-body">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap"
+        >
+          <div>
+            <h5 class="fw-semibold mb-1 text-dark">
+              <i class="fa-solid fa-receipt me-2 text-primary"></i> Order #
+              {{ order.id }}
+            </h5>
+            <p class="text-muted small mb-0">
+              <i class="fa-regular fa-calendar-days me-1"></i>
+              {{ order.createdAt | date: 'medium' }}
+            </p>
+          </div>
+
+          <div class="text-end mt-3 mt-md-0">
+            <p class="fw-bold text-primary mb-2">
+              Total: {{ order.totalOrderPrice | currency: 'EGP':'symbol' }}
+            </p>
+
+            <span
+              class="badge me-2 px-3 py-2"
+              [class.bg-success]="order.isPaid"
+              [class.bg-warning]="!order.isPaid"
+              [class.text-dark]="!order.isPaid"
+            >
+              <i
+                class="fa-solid"
+                [class.fa-circle-check]="order.isPaid"
+                [class.fa-clock]="!order.isPaid"
+              ></i>
+              {{ order.isPaid ? 'Paid' : 'Unpaid' }}
+            </span>
+
+            <span
+              class="badge px-3 py-2"
+              [class.bg-success]="order.isDelivered"
+              [class.bg-secondary]="!order.isDelivered"
+            >
+              <i
+                class="fa-solid"
+                [class.fa-truck]="order.isDelivered"
+                [class.fa-box-open]="!order.isDelivered"
+              ></i>
+              {{ order.isDelivered ? 'Delivered' : 'Pending' }}
+            </span>
+          </div>
+        </div>
+
+        <div class="text-end mt-3">
+          <button
+            class="btn btn-outline-primary btn-sm toggle-btn rounded-pill px-3"
+            (click)="toggleDetails(order)"
+          >
+            <i
+              class="fa"
+              [class.fa-chevron-up]="order.showDetails"
+              [class.fa-chevron-down]="!order.showDetails"
+            ></i>
+            {{ order.showDetails ? 'Hide Details' : 'View Details' }}
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="order-details px-4 pb-4"
+        [class.show]="order.showDetails"
+        [class.hide]="!order.showDetails"
+      >
+        <div class="row g-3 mt-2">
+          @for (item of order.cartItems; track item._id) {
+            <div class="col-md-4 col-sm-6">
+              <div class="card h-100 product-card border-0 shadow-sm">
+                <img
+                  [src]="item.product.imageCover"
+                  class="card-img-top rounded-top-3"
+                  alt="{{ item.product.title }}"
+                />
+                <div class="card-body">
+                  <h6 class="fw-semibold">{{ item.product.title }}</h6>
+                  <p class="text-muted small mb-1">
+                    <i class="fa-solid fa-tag me-1"></i>
+                    {{ item.product.brand.name }}
+                  </p>
+                  <p class="fw-bold mb-1">
+                    Price: {{ item.price | currency: 'EGP':'symbol' }}
+                  </p>
+                  <p class="small mb-0">
+                    Quantity: <span class="fw-semibold">{{ item.count }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>
