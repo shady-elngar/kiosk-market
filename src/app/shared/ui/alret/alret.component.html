@@ -1,0 +1,24 @@
+@if(formName.get(ControlName)?.errors &&( formName.get(ControlName)?.touched || formName.get(ControlName)?.dirty)){
+<div class="alert alert-danger mt-2 p-0 ">
+    <ul>
+        @if(formName.get(ControlName)?.getError("required")) {
+        <li>{{ControlName}} is required</li>
+        } @if(formName.get(ControlName)?.getError("maxlength")) {
+        <li>Max-length : 15</li>
+        } @if(formName.get(ControlName)?.getError("minlength")) {
+        <li>Min-length : 2</li>
+        } @if(formName.get(ControlName)?.getError("email")) {
+        <li>Email is not valid</li>
+        } @if(formName.get(ControlName)?.getError("pattern") && (ControlName == "phone")) {
+        <li> Please enter an egyption valid number </li>
+        } @else if(formName.get(ControlName)?.getError("pattern") && (ControlName == "password" || "rePassword" || "newPassword")) {
+        <li> Minimum eight characters, at least one letter, one number and one special character</li>
+        }
+    </ul>
+</div>
+}@if(formName.errors?.['passwordMismatch'] && formName.touched&& ControlName=="rePassword" ) {
+<div class="alert alert-danger mt-2">
+    <li> rePassword do not match password
+    </li>
+</div>
+}

@@ -1,0 +1,16 @@
+.category img {
+    height: 200px;
+    object-fit: fill;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.category {
+    cursor: pointer;
+}
+
+h1 {
+    letter-spacing: 15px;
+    font-weight: bolder;
+    font-size: 60px;
+}

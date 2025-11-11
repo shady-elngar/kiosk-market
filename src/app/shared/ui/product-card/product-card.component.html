@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row" >
+    @for (product of products; track $index) {
+
+    <div class="col-md-2" [@cardAnimation]>
+      
+      
+        <div class="product cursor-pointer text-center p-2 mb-2" [routerLink]="['/main/productDetails', product.id]">
+          <img class="w-100" [src]="product.imageCover" />
+          <h6 class="text-main mt-3">{{ product.category.name }}</h6>
+          <h2 class="h5">
+            {{ product.title.split(" ").slice(0, 2).join(" ") }}
+          </h2>
+          <div class="d-flex justify-content-between">
+            <span>{{ product.price }} <span class="text-main">EGP</span> </span>
+            <span
+              >{{ product.ratingsAverage
+              }}<i class="fa-solid fa-star rating-color"></i
+            ></span>
+          </div>
+        </div>
+      
+    </div>
+
+    }
+  </div>
+</div>

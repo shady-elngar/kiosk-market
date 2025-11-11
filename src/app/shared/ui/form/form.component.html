@@ -1,0 +1,42 @@
+<div class="w-75 m-auto mt-3">
+    <form [formGroup]="Form">
+        @for (field of fields; track $index) {
+
+
+        <div>
+            <label class="form-label fs-5">{{field}} :</label> @if (field=="name"|| "details" || "city") {
+
+            <input [formControlName]="field" type="text" class="form-control " [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">            } @else if (field=="email") {
+            <input [formControlName]="field" type="email" class="form-control" [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">            } @else if (field=="password" || "newPassword") {
+            <div class="position-relative">
+                @if(isShow==true){
+                <input type="text" class="form-control  " [formControlName]="field" [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">
+                <i (click)="show()" class="fa-solid fa-eye-slash bg-primary show-icon"></i> } 
+                @if(isShow ==false){
+                <input type="password" class="form-control  " [formControlName]="field" [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">
+                <i (click)="show()" class="fa-solid fa-eye bg-primary show-icon"></i> }
+
+            </div>} @else if (field=="rePassword") {
+            <div class="position-relative">
+                @if(isShow==true){
+                <input type="text" class="form-control  " [formControlName]="field" [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">
+                <i (click)="show()" class="fa-solid fa-eye-slash bg-primary show-icon"></i> } @if(isShow ==false){
+                <input type="password" class="form-control  " [formControlName]="field" [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">
+                <i (click)="show()" class="fa-solid fa-eye bg-primary show-icon"></i> }
+
+            </div>
+            } @else if (field=="phone") {
+            <input [formControlName]="field" type="tel" class="form-control" [ngClass]="{'is-invalid':Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty),'is-valid' :!Form.get(field)?.errors&&( Form.get(field)?.touched || Form.get(field)?.dirty)}">            }
+        </div>
+        <app-alret [formName]="Form" [ControlName]="field"></app-alret>
+        }
+        <button class="btn btn-success mt-4" [disabled]="Form.invalid" (click)="formHundel()" type="button"> 
+            @if (Loading) {
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            }@if (!Loading) {
+                {{btnContant}}
+            }
+        </button>
+
+    </form>
+</div>

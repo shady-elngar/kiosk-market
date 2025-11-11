@@ -1,0 +1,22 @@
+
+<h2 class="text-center mb-5 my-3 head-line mt-5">
+    Shop by Brands 
+</h2>
+<app-loading-spinner></app-loading-spinner>
+
+<div class="container">
+    <div class="row" #brandContainer
+       [@brandListAnimation]="animationState">
+        @for (brand of Brands; track $index) {
+
+          <div class="col-md-2 brand-item" >
+            <div class="text-center cursor-pointer">
+             <img class="w-100" [src]="brand.image" [alt]="brand.name">
+            </div>
+          </div>
+
+
+        }
+        
+    </div>
+</div>

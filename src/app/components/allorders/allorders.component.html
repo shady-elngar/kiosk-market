@@ -1,0 +1,28 @@
+<div class="success-container d-flex align-items-center justify-content-center">
+  <div class="success-card text-center shadow-lg p-4">
+    <div class="icon-wrapper mx-auto mb-4">
+      <i class="fa-solid fa-check"></i>
+    </div>
+
+    <h2 class="text-success fw-bold mb-2 fade-in">Payment Successful!</h2>
+    <p class="text-muted mb-4 fade-in delay-1">Thank you for your purchase 💚</p>
+
+    <div class="d-flex flex-column gap-2">
+      <button
+        type="button"
+        class="btn btn-success fw-semibold fade-in delay-2"
+        (click)="goToOrders()"
+      >
+        View My Orders
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-outline-secondary fade-in delay-3"
+        (click)="goHome()"
+      >
+        Back to Home
+      </button>
+    </div>
+  </div>
+</div>

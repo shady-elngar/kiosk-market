@@ -1,0 +1,41 @@
+footer{
+    background-color: #4A327C;
+    color: white;
+    padding: 2% 0;
+}
+li
+{
+    list-style: none;
+    margin-bottom: 4px;
+}
+li a , p
+{
+    text-decoration: none;
+    color: #9fa3b2;
+    font-size: 14px !important;
+    font-weight: lighter;
+}
+h6
+{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+label
+{
+    white-space: nowrap !important;
+    font-size: 12px !important;
+}
+input
+{
+    background: transparent;
+    color: #fff;
+    height: 33px;
+}
+input::placeholder {
+  color: white; 
+  opacity: 1;  
+  font-size: small;
+  font-weight: 300;
+}
+

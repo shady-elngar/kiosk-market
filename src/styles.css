@@ -1,0 +1,140 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'animate.css/animate.min.css';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+
+
+:root {
+    --main-color: #6c27ec;
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --rating-color: #ffc908;
+}
+
+ body {
+    font-family: var(--font-family) !important;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.rating-color {
+    color: var(--rating-color);
+}
+.star {
+  font-size: 1.5rem;
+  color: #FFD700; 
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3); 
+  transition: transform 0.2s;
+}
+
+.star:hover {
+  transform: scale(1.2); 
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.product:hover {
+    box-shadow: var(--shadow);
+    /* border: solid 1px var(--main-color); */
+}
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.product:hover .btn {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.font-sm {
+    font-size: 14px;
+}
+
+.text-main {
+    color: var(--main-color);
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+    background-color: var(--light-color) !important;
+}
+
+.show-icon {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    background-color: gray !important;
+    padding: 11px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+
+.owl-carousel {
+    cursor: pointer;
+}
+
+.logo {
+    color: var(--main-color);
+    font-weight: 900;
+    font-size: larger;
+}
+.head-line
+{
+    color: var(--main-color);
+    letter-spacing: 8px;
+    font-weight: bold;
+    font-size: 40px;
+}
+.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 5px;
+  
+}
+.delete-btn {
+  background-color: #e63946; /* red */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.delete-btn:hover {
+  background-color: #d62839; /* darker red */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.delete-btn:active {
+  background-color: #ba1b1d;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

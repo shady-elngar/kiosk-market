@@ -1,0 +1,110 @@
+<app-loading-spinner></app-loading-spinner>
+@if (cartProducts.length==0) {
+<h2 class="head-line text-center">your cart is empty</h2>
+}@else {
+<div class="container mt-5">
+  <h2 class="mb-5 my-3 head-line ms-3">Your Cart</h2>
+  <div class="row">
+    <div class="col-md-6">
+      @for (item of cartProducts; track $index) {
+      <div class="d-flex justify-content-center align-items-center mb-3">
+        <div class="item-image w-50 cursor-pointer" [routerLink]="['/main/productDetails', item.product.id]">
+          <img class="w-50" [src]="item.product.imageCover" />
+        </div>
+
+        <div class="item-details w-50">
+          <span class="brand">{{ item.product.brand.name }}</span>
+          <h6 class="title mb-1">
+            {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+          </h6>
+          <span class="d-block mb-2">
+            price: <span class="currentprice">{{ item.price }}</span> EGP
+          </span>
+
+          <button
+            (click)="deleteItem(item.product.id)"
+            class="delete-btn d-block mb-2"
+          >
+            @if (deletloadingProductId === item.product.id) {
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            }@else {
+            <i class="fa-solid fa-trash-can"></i> Delete }
+          </button>
+
+          <div class="quantity">
+
+
+
+
+            <button
+              (click)="updateItemQty(item.product.id, item.count - 1 , 'decrease')"
+              class="quantity-btn"
+            >
+              @if(loadingDecreaseProductId==item.product.id ){
+              <i class="fa-solid fa-spinner fa-spin"></i>
+              }@else { − }
+            </button>
+
+
+
+
+            
+
+            <input type="text" value="{{ item.count }}" readonly />
+
+            <button
+              (click)="updateItemQty(item.product.id, item.count + 1 , 'increase')"
+              class="quantity-btn"
+            >
+              @if(loadingIncreaseProductId==item.product.id ){
+              <i class="fa-solid fa-spinner fa-spin"></i>
+              }@else { + }
+            </button>
+          </div>
+          <p class="mt-1">Total price:{{ item.count * item.price }} EGP</p>
+        </div>
+      </div>
+      <hr />
+      }
+    </div>
+
+    <div class="col-md-5 offset-md-1">
+      <div class="summary-box">
+        <h4 class="title">Order summary</h4>
+        <hr />
+        <textarea
+          class="form-control my-2"
+          rows="3"
+          placeholder="Add order note"
+        ></textarea>
+        <hr />
+        <p>
+          Products count :
+          <span class="currentprice">{{ cartProducts.length }}</span>
+        </p>
+        <p>
+          Subtotal:
+          <span class="currentprice"
+            >{{ allRes?.data?.totalCartPrice }} EGP</span
+          >
+        </p>
+
+        <button routerLink='/main/address/{{cartId}}' class="btn btn-primary w-100">CHECKOUT</button>
+
+
+
+
+
+
+        <button (click)="clearCart()" class="btn btn-danger w-100 mt-3">
+          @if(isLoading==true){
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          }@else{ CLEAR CART <i class="fa-solid fa-trash-can"></i>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+}
